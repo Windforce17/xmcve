@@ -19,6 +19,7 @@ Vue.config.productionTip = false
 
 
 const routes = [
+  { path: '/', component: Home },
   { path: '/home', component: Home },
   { path: '/about', component: About },
   { path: '/platform', component: Platform },
