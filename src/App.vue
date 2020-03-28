@@ -1,57 +1,65 @@
 <template>
   <div id="app">
-    <div id="xmlayout">
-      <a-layout>
+    <a-layout>
+      <a-layout-header :style="{
+        backgroundColor: 'rgb(255,255,255)'
+      }">
+        <a-row>
+          <a-col>
+            <img
+              class="logo"
+              src='~@/assets/img/logo.jpg'
+              id='xmLogo'
+            >
+          </a-col>
 
-        <a-layout-header :style="layout_style">
-          <a-row>
-            <a-col :span="3">
-              <div class="logo" />
-            </a-col>
-            <a-col
-              :span="5"
-              :style="{
+          <a-col :span='4'>
+
+            <div :style="{
                 textAlign:'center',
                 textSize:'20px',
-                fontSize:'20px'
-                }"
-            >
+                fontSize:'20px',
+                top:'-6px'
+                }">
               星盟安全团队
-            </a-col>
-            <a-col>
+            </div>
+          </a-col>
+          <a-col>
 
-              <a-menu
-                theme="light"
-                mode="horizontal"
-                v-model="current"
-                @click="jump_to"
-              >
+            <a-menu
+              theme="light"
+              mode="horizontal"
+              v-model="current"
+              @click="jump_to"
+            >
 
-                <a-menu-item key="Home">首页</a-menu-item>
+              <a-menu-item key="Home">首页</a-menu-item>
 
-                <a-menu-item key="about_us">关于我们</a-menu-item>
+              <a-menu-item key="about_us">关于我们</a-menu-item>
 
-                <a-menu-item key="open_platform">开放平台</a-menu-item>
+              <a-menu-item key="open_platform">开放平台</a-menu-item>
 
-                <a-menu-item key="time_line">时间轴</a-menu-item>
+              <a-menu-item key="time_line">时间轴</a-menu-item>
 
-                <a-menu-item key="contact_us">联系我们</a-menu-item>
+              <a-menu-item key="contact_us">联系我们</a-menu-item>
 
-                <a-menu-item key="partner">合作伙伴</a-menu-item>
+              <a-menu-item key="partner">合作伙伴</a-menu-item>
 
-              </a-menu>
-            </a-col>
+            </a-menu>
+          </a-col>
 
-          </a-row>
+        </a-row>
 
-        </a-layout-header>
+      </a-layout-header>
+      <a-layout-content id='content'>
         <router-view></router-view>
-        <a-layout-content></a-layout-content>
-        <a-layout-footer style="text-align: center">
-          星盟安全团队
-        </a-layout-footer>
-      </a-layout>
-    </div>
+
+      </a-layout-content>
+
+      <a-layout-footer style="text-align: center">
+        星盟安全团队
+      </a-layout-footer>
+    </a-layout>
   </div>
 </template>
 
@@ -60,9 +68,9 @@
 
 export default {
   name: "App",
-  components: {
-    // HelloWorld
-  },
+  // components: {
+  //   // HelloWorld
+  // },
   data() {
     return {
       current: ["Home"],
@@ -73,9 +81,6 @@ export default {
         time_line: "/timeline",
         contact_us: "/contact",
         partner: "/partner"
-      },
-      layout_style: {
-        backgroundColor: "rgb(255,255,255)"
       }
     };
   },
@@ -90,11 +95,16 @@ export default {
 </script>
 
 <style>
-#xmlayout .logo {
-  width: 120px;
-  height: 31px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px 24px 16px 0;
+#xmLogo {
+  width: 80px;
+  height: 64px;
+  /* background: rgba(0, 0, 0, 0.2); */
+  /* margin: 16px 24px 16px 0; */
   float: left;
+}
+#content {
+  margin: 20px;
+  height: 600px;
+  position: relative;
 }
 </style>
